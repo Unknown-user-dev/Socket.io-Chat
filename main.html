@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://zupimages.net/up/21/30/2w9g.png" type="image/png">
+    <title> Socket.io - Chat </title>
+
+    <script src="https://kit.fontawesome.com/d67aee74f2.js" crossorigin="anonymous"></script>
+
+    <style>
+
+        * {
+            margin: 0;
+            font-family: "Roboto", sans-serif;
+            text-align: center;
+        }
+
+        p.title {
+            text-align: center;
+            position: relative;
+            left: 27.5%;
+            right: 47.5%;
+            margin: 15px;
+            padding: 10px;
+            width: 550px;
+            font-size: 80px;
+            font-weight: bold;
+            border: solid 4px black;
+        }
+
+        .fa-envelope {
+            color: blue;
+        }
+
+        div.form {
+            margin: 15px;
+        }
+
+        li {
+            list-style-type: none;
+            margin-top: 5px;
+        }
+
+        #message {
+            font-size: 16px;
+            border-radius: 10px;
+            height: 30px;
+            width: 500px;
+            text-align: left;
+        }
+
+        .send-btn {
+            height: 35px;
+            text-transform: uppercase;
+            font-weight: 800;
+            border-radius: 10px;
+        }
+
+    </style>
+
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <script>
+
+        const socket = io();
+
+        var send = function(){
+            var content = document.getElementById("message").value
+            socket.emit("chat", content)
+        }
+
+        var show = function(msg){
+            var li = document.createElement("li")
+            li.innerText = msg
+            document.getElementById("messages").appendChild(li);
+        }
+        
+        socket.on("chat", show)
+
+    </script>
+
+</head>
+<body>
+    <p class="title"><i class="fas fa-envelope"></i> Socket.io - Chat</p>
+    <div>
+        <ul id="messages"></ul>
+    </div>
+    <div class="form">
+        <input type="text" name="Message" placeholder="Ton Message..." id="message" required>
+        <button  class="send-btn" onclick="send()">Send</button>
+    </div>
+</body>
+</html>
