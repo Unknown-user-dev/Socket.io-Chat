@@ -22,7 +22,7 @@ npm i
 ```
 To start the socket.io-chat server
 ```
-node server.js
+node server
 ```
 
 To connect in the websocket chat
