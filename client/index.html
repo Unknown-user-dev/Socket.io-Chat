@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title>💬 Socket.IO Chat</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <h1>Join The Chat</h1>
+        <ul class="feed"></ul>
+        
+        <form class="messaging-form" action="#">
+            <span class="feedback"></span>
+            <div class="message-input">
+                <img class="avatar" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" />
+                <input type="text" class="message-input-field name-input" placeholder="Your name" />
+            </div>
+            
+            <button class="join">Join</button>
+        </form>
+
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
